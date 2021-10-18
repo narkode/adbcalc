@@ -14,11 +14,34 @@ def calculate_dose(start, stop, end_interval, dose, intake_type):
     dose: value from the "dose" row 
     intake_type: 1 - Norepinephrine (mg / h)
                  2 - FLuids (ml / h)
-
-    TODO:
-        - Raise error if start AND stop are > end_interval
     '''
+
+    try:
+        int(start)
+    except ValueError:
+        raise Exception("start must be a number")
     
+    try:
+        int(stop)
+    except ValueError:
+        raise Exception("stop must be a number")
+
+    try:
+        int(end_interval)
+    except ValueError:
+        raise Exception("end_interval must be a number")
+
+    try:
+        int(dose)
+    except ValueError:
+        raise Exception("dose must be a number")
+
+    try:
+        int(intake_type)
+    except ValueError:
+        raise Exception("intake_type must be a number")
+
+
     # Select divisor 
     # 
     # 3600 for norepinephrine (mg per hour to microgram)
